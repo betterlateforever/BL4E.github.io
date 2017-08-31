@@ -33,5 +33,5 @@ function setup() {
   }
   
   function mousePressed (){
-   background(+30,+60,+50) 
+   background(random(255),random(255),random(255))
   }
