@@ -24,15 +24,29 @@ function draw() {
   fill(50, 50, 255, 25);
   ellipseMode(CENTER);
 
-  circleLocX = circleLocX+ random(-1,1);
-  circleLocY = circleLocY+ random(-1,1);
-  circleSizeX = circleSizeX+ random(-5,5);
-  circleSizeY = circleSizeY+ random(-5,5);
+  if (circleLocX > width+50){
+    circleLocX = width-width-50;
+  }
+    if (circleLocY > height+50){
+    circleLocY = height-height-50;
+  }
 
-  diamondLocX = diamondLocX-random(-1,1);
-  diamondLocY = diamondLocY-random(-1,1);
-  diamondSizeX = diamondSizeX+ random(-5,5);
-  diamondSizeY = diamondSizeY+ random(-5,5);
+  circleLocX = circleLocX + 2;
+  circleLocY = circleLocY + 2;
+  circleSizeX = circleSizeX + random(-1,+1);
+  circleSizeY = circleSizeY + random(-1,+1);
+  
+    if (diamondLocX < -50){
+    diamondLocX = width+50;
+  }
+    if (diamondLocY < -50){
+    diamondLocY = height+50;
+  }
+  
+  diamondLocX = diamondLocX - 2;
+  diamondLocY = diamondLocY - 2;
+  diamondSizeX = diamondSizeX + random(-1,+1);
+  diamondSizeY = diamondSizeY + random(-1,+1);
   
   ellipse(circleLocX, circleLocY, circleSizeX, circleSizeY);
   ellipse(circleLocX, circleLocY, circleSizeX - 10, circleSizeY);
