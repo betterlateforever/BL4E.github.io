@@ -1,10 +1,12 @@
 function setup() {
   createCanvas(640, 480);
-  background(50)
+  red_bg = 50;
+  green_bg= 50;
+  blue_bg= 50;
 }
-
   function draw() {
     stroke(0);
+  background(red_bg,green_bg,blue_bg);
     //background(50)
     fill(50, 50, 255, 25);
     ellipseMode(CENTER);
@@ -33,5 +35,7 @@ function setup() {
   }
   
   function mousePressed (){
-   background(random(255),random(255),random(255))
+   red_bg= random(255);
+   green_bg=random(255);
+   blue_gb=random(255);
   }
