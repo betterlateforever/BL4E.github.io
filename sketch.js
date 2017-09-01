@@ -1,41 +1,64 @@
 function setup() {
+  //canvas size
   createCanvas(640, 480);
-  red_bg = 50;
-  green_bg = 50;
-  blue_bg = 50;
+  //background colours
+  redBg = 50;
+  greenBg = 50;
+  blueBg = 50;
+  background(redBg, greenBg, blueBg);
+  //circle sprite location/size
+  circleLocX = width / 2;
+  circleSizeX = 100;
+  circleLocY = height / 2;
+  circleSizeY = 100;
+  //diamond sprite location/size
+  diamondLocX = width / 2;
+  diamondSizeX = 90;
+  diamondLocY = width / 2 - 80;
+  diamondSizeY = 90;
 }
 
 function draw() {
   stroke(0);
-  background(red_bg, green_bg, blue_bg);
+  //background(redBg, greenBg, blueBg);
   fill(50, 50, 255, 25);
   ellipseMode(CENTER);
 
-  ellipse(mouseX, mouseY, 100, 100);
-  ellipse(mouseX, mouseY, 90, 90);
-  ellipse(mouseX, mouseY, 80, 90);
-  ellipse(mouseX, mouseY, 70, 90);
-  ellipse(mouseX, mouseY, 60, 90);
-  ellipse(mouseX, mouseY, 50, 90);
-  ellipse(mouseX, mouseY, 40, 90);
-  ellipse(mouseX, mouseY, 30, 90);
-  ellipse(mouseX, mouseY, 20, 90);
-  ellipse(mouseX, mouseY, 10, 90);
+  circleLocX = circleLocX+ random(-1,1);
+  circleLocY = circleLocY+ random(-1,1);
+  circleSizeX = circleSizeX+ random(-5,5);
+  circleSizeY = circleSizeY+ random(-5,5);
+
+  diamondLocX = diamondLocX-random(-1,1);
+  diamondLocY = diamondLocY-random(-1,1);
+  diamondSizeX = diamondSizeX+ random(-5,5);
+  diamondSizeY = diamondSizeY+ random(-5,5);
+  
+  ellipse(circleLocX, circleLocY, circleSizeX, circleSizeY);
+  ellipse(circleLocX, circleLocY, circleSizeX - 10, circleSizeY);
+  ellipse(circleLocX, circleLocY, circleSizeX - 20, circleSizeY);
+  ellipse(circleLocX, circleLocY, circleSizeX - 30, circleSizeY);
+  ellipse(circleLocX, circleLocY, circleSizeX - 40, circleSizeY);
+  ellipse(circleLocX, circleLocY, circleSizeX - 50, circleSizeY);
+  ellipse(circleLocX, circleLocY, circleSizeX - 60, circleSizeY);
+  ellipse(circleLocX, circleLocY, circleSizeX - 70, circleSizeY);
+  ellipse(circleLocX, circleLocY, circleSizeX - 80, circleSizeY);
+  ellipse(circleLocX, circleLocY, circleSizeX - 90, circleSizeY);
 
   fill(225, 50, 50, 25);
-  ellipse(width - mouseX, mouseY, 90, 10);
-  ellipse(width - mouseX, mouseY, 80, 20);
-  ellipse(width - mouseX, mouseY, 70, 30);
-  ellipse(width - mouseX, mouseY, 60, 40);
-  ellipse(width - mouseX, mouseY, 50, 50);
-  ellipse(width - mouseX, mouseY, 40, 60);
-  ellipse(width - mouseX, mouseY, 30, 70);
-  ellipse(width - mouseX, mouseY, 20, 80);
-  ellipse(width - mouseX, mouseY, 10, 90);
+  ellipse(diamondLocX, diamondLocY, diamondSizeX, diamondSizeY - 80);
+  ellipse(diamondLocX, diamondLocY, diamondSizeX - 10, diamondSizeY - 70);
+  ellipse(diamondLocX, diamondLocY, diamondSizeX - 20, diamondSizeY - 60);
+  ellipse(diamondLocX, diamondLocY, diamondSizeX - 30, diamondSizeY - 50);
+  ellipse(diamondLocX, diamondLocY, diamondSizeX - 40, diamondSizeY - 40);
+  ellipse(diamondLocX, diamondLocY, diamondSizeX - 50, diamondSizeY - 30);
+  ellipse(diamondLocX, diamondLocY, diamondSizeX - 60, diamondSizeY - 20);
+  ellipse(diamondLocX, diamondLocY, diamondSizeX - 70, diamondSizeY - 10);
+  ellipse(diamondLocX, diamondLocY, diamondSizeX - 80, diamondSizeY);
 }
 
 function mousePressed() {
-  red_bg= random(255);
-  green_bg=random(255);
-  blue_bg=random(255);
+  redBg = random(255);
+  greenBg = random(255);
+  blueBg = random(255);
 }
