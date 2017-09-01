@@ -31,8 +31,8 @@ function draw() {
     circleLocY = height-height-50;
   }
 
-  circleLocX = circleLocX + 2;
-  circleLocY = circleLocY + 2;
+  circleLocX = circleLocX + 20;
+  circleLocY = circleLocY + 20;
   circleSizeX = circleSizeX + random(-1,+1);
   circleSizeY = circleSizeY + random(-1,+1);
   
@@ -43,8 +43,8 @@ function draw() {
     diamondLocY = height+50;
   }
   
-  diamondLocX = diamondLocX - 2;
-  diamondLocY = diamondLocY - 2;
+  diamondLocX = diamondLocX - 20;
+  diamondLocY = diamondLocY - 20;
   diamondSizeX = diamondSizeX + random(-1,+1);
   diamondSizeY = diamondSizeY + random(-1,+1);
   
