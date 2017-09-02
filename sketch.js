@@ -16,6 +16,11 @@ function setup() {
   diamondSizeX = 90;
   diamondLocY = width / 2 - 80;
   diamondSizeY = 90;
+  circleSpeedX = 2;
+  circleSpeedY = 2;
+  diamondSpeedX = 2;
+  diamondSpeedY = 2;
+  motion = false;
 }
 
 function draw() {
@@ -24,30 +29,6 @@ function draw() {
   fill(50, 50, 255, 25);
   ellipseMode(CENTER);
 
-  if (circleLocX > width+50){
-    circleLocX = width-width-50;
-  }
-    if (circleLocY > height+50){
-    circleLocY = height-height-50;
-  }
-
-  circleLocX = circleLocX + 20;
-  circleLocY = circleLocY + 20;
-  circleSizeX = circleSizeX + random(-1,+1);
-  circleSizeY = circleSizeY + random(-1,+1);
-  
-    if (diamondLocX < -50){
-    diamondLocX = width+50;
-  }
-    if (diamondLocY < -50){
-    diamondLocY = height+50;
-  }
-  
-  diamondLocX = diamondLocX - 20;
-  diamondLocY = diamondLocY - 20;
-  diamondSizeX = diamondSizeX + random(-1,+1);
-  diamondSizeY = diamondSizeY + random(-1,+1);
-  
   ellipse(circleLocX, circleLocY, circleSizeX, circleSizeY);
   ellipse(circleLocX, circleLocY, circleSizeX - 10, circleSizeY);
   ellipse(circleLocX, circleLocY, circleSizeX - 20, circleSizeY);
@@ -59,6 +40,45 @@ function draw() {
   ellipse(circleLocX, circleLocY, circleSizeX - 80, circleSizeY);
   ellipse(circleLocX, circleLocY, circleSizeX - 90, circleSizeY);
 
+  if (motion) {
+    circleLocX = circleLocX + circleSpeedX;
+    circleLocY = circleLocY + circleSpeedY;
+    diamondLocX = diamondLocX - diamondSpeedX;
+    diamondLocY = diamondLocY - diamondSpeedY;
+    
+    circleSizeX = circleSizeX + random(-1,1);
+    circleSizeY = circleSizeY + random(-1,1);
+    diamondSizeX = diamondSizeX + random(-1,1);
+    diamondSizeY = diamondSizeX + random(-1,1);
+    
+   }
+  
+  if (circleLocX==width){
+    circleSpeedX = -2;
+  }
+    if (circleLocX==width-width){
+    circleSpeedX = 2;
+  }
+    if (circleLocY==height){
+    circleSpeedY = -2;
+  }
+    if (circleLocY==height-height){
+    circleSpeedY = 2;
+  }
+  
+    if (diamondLocX==width){
+    diamondSpeedX = 2;
+  }
+    if (diamondLocX==width-width){
+    diamondSpeedX = -2;
+  }
+    if (diamondLocY==height){
+    diamondSpeedY = 2;
+  }
+    if (diamondLocY==height-height){
+    diamondSpeedY = -2;
+  }
+  
   fill(225, 50, 50, 25);
   ellipse(diamondLocX, diamondLocY, diamondSizeX, diamondSizeY - 80);
   ellipse(diamondLocX, diamondLocY, diamondSizeX - 10, diamondSizeY - 70);
@@ -72,7 +92,6 @@ function draw() {
 }
 
 function mousePressed() {
-  redBg = random(255);
-  greenBg = random(255);
-  blueBg = random(255);
+motion = !motion;
+ 
 }
